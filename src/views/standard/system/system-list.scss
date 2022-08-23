@@ -1,0 +1,155 @@
+.scp-system-container {
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+
+    .left {
+        border-left: 1px solid #DDD;
+        background-color: #EEE;
+        height: 100%;
+        width: 300px;
+        overflow: hidden;
+        ::v-deep .el-tree{
+            background: transparent;
+            .custom-tree-node{
+                font-size:12px;
+                flex: 1;
+                line-height: 25px;
+                border-bottom: 1px solid #e6e6e6;
+                .root{
+                    font-weight: bold;
+                    color:#a70e0e;
+                }
+                *.active{
+                    color:#409EFF;
+                }
+            }
+            .is-current .custom-tree-node{
+                color: #E6A23C;
+            }
+        }
+    }
+
+    	/**弹窗**/
+	.view-container{
+	    position: fixed;
+	    z-index: 100;
+	    left: 0;
+	    top: 0;
+	    width: 100%;
+	    height: 100%;
+	    background-color: rgba(0,0,0,.5);
+	    align-items: center;
+	    justify-content: center;
+	    display: none;
+	    >div{
+            background-color: #FFF;
+	        box-shadow: 6px 3px 5px 0 rgba(0,0,0,.5);
+	        width: 70vw;
+	        height: 100%;
+	        .v-title{
+	            height:40px;
+	            background-color: #CCC;
+	            display: flex;
+	            align-items: center;
+	            justify-content: space-between;
+	            padding: 0 15px;
+	        }
+	        .content{
+	            height: calc(100% - 40px);
+	        }
+	    }
+	    &.show{
+	        display: flex;
+	    }
+
+	}
+
+
+
+    .main {
+        overflow: auto;
+        flex:1;
+        .s-title{
+            color:#666;
+            display: flex;
+            align-items: center;
+            padding: 5px 10px;
+            background-color: #f6f7eb;
+            border-bottom: 1px solid #DDD;
+            >em{
+                display: block;
+                margin: 0 3px;
+            }
+        }
+        .forms{
+            padding:10px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .more-filter{
+            padding:10px 15px;
+            ::v-deep.el-form{
+                border:1px solid #DDD;
+                margin: -15px 0 20px 0;
+                background-color: #fff;
+                box-shadow: 3px 3px 3px 0 rgba(0,0,0,.1);
+                >h5{
+                    padding: 5px 10px;
+                    background-color: #eaf7f7;
+                    font-size: 14px;
+                }
+                .el-row{
+                    padding: 10px;
+                    .el-col{
+                        .el-form-item{
+                            width: 100%;
+                            display: inline-flex;
+                            align-items: center;
+                            .el-form-item__content{
+                                flex:1;
+                            }
+                        }
+                        .fbtns{
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+        .btns{
+            padding: 0 15px 15px 15px;
+        }
+        .tables{
+            // padding: 0 10px;
+        }
+    }
+}
+::v-deep .el-checkbox-group{
+    .el-checkbox{
+        width: 100%;
+        .el-checkbox__label{
+            font-size: 12px;
+        }
+    }
+}
+
+::v-deep .el-dialog{
+    transition: all .3s;
+    .table-form{
+        .el-form-item{
+            .el-form-item__content{
+                border:1px solid #DDD;
+            }
+        }
+    }
+
+    .config-list{
+        li{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+}

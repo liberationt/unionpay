@@ -1,0 +1,248 @@
+@import "~@/assets/styles/variables.scss";
+$active-color: #bbe1ff;
+.solution-index-container{
+    height: 100%;
+    overflow: auto;
+    main{
+        display: flex;
+        >div{
+            position: relative;
+            min-height: 400px;
+            background-color: #FFF;
+            transition: all .25s;
+            &.left-wrapper{
+                position: relative;
+                flex: 0 0 300px;
+                border-right: 1px solid #EEE;
+                background-image:linear-gradient(0deg, #d3e7f7, transparent);
+                z-index:1;
+                &.hide{
+                    .datas{
+                        visibility: hidden;
+                    }
+                }
+                ::v-deep .el-tree{
+                    background: transparent;
+                }
+                .collapse{
+                    position: absolute;
+                    width: 20px;
+                    height: 30px;
+                    right: -20px;
+                    top: 15px;
+                    background-image: linear-gradient(90deg, #FFF, #F8F8F8);
+                    border: 1px solid #DDD;
+                    border-left-width: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-top-right-radius: 3px;
+                    border-bottom-right-radius: 3px;
+                    cursor: pointer;
+                    box-shadow: 2px 2px 0 0 rgba(0,0,0,.1);
+                }
+                .datas{
+					padding: 10px 0;
+                    .search{
+                        padding: 5px 10px;
+                    }
+                    >h3{
+                        font-size: 14px;
+                        font-weight: bold;
+                        margin: 0;
+                        padding: 10px 15px;
+                    }
+                    ::v-deep .el-tree {
+                        padding: 0 10px;
+                    }
+                }
+            }
+
+            &.main-wrapper{
+                flex: 1;
+				overflow: hidden;
+                .search-content{
+					padding: 20px 0 15px 0;
+                    width:450px;
+					margin: 0 auto;
+                }
+                >h1{
+                    text-align: center;
+                    margin: 10px 0;
+                    color: #28378c;
+                    font-weight: bold;
+                    >span.title{
+                        cursor: pointer;
+                        letter-spacing: .15em;
+                        // border-bottom: 3px double #28378c;
+                        padding: 5px 0;
+                    }
+                    >span.charpter{
+                        // background-color: #EEE;
+                        color: #42b9fe;
+                    }
+                }
+                // 章节列表
+                ul.lists{
+                    margin: 20px;
+                    overflow: hidden;
+                    list-style-type: none;
+                    padding:0 20px;
+                    // width: 100%;
+                    display:flex;
+                    &.hide{
+                        >li{
+                           visibility: hidden;
+                        }
+                    }
+                    >li{
+                        padding: 10px;
+                        width: 20%;
+                        cursor: pointer;
+                        user-select: none;
+                        @for $i from 1 through 7 {
+                            &.col-#{$i} {
+                                width: $i*14.285%;
+                            }
+                        }
+                        &:hover{
+                            .childs{
+                                box-shadow: 0 0 8px 0 rgba(0,0,0,.1);
+                            }
+                        }
+                        .title{
+                            text-align: center;
+                            font-weight: bold;
+                            padding: 10px;
+                            margin: 0;
+                        }
+                        .childs{
+                            border: 1px solid #d6e6f7;
+                            padding: 15px;
+                            min-height: 300px;
+                            height: calc(100% - 38px);
+                            background-color: #ebf4f9;
+                            border-radius: 5px;
+
+                            .chapters{
+                                margin-bottom: 15px;
+                                &.active>ul{
+                                    background-color: $active-color;
+                                }
+                                >h5{
+                                    text-align: center;
+                                    font-size: 16px;
+                                    margin: 0;
+                                    line-height: 2;
+                                }
+                                >ul{
+                                    padding: 10px;
+                                    border: 1px solid rgba(0,0,0,.1);
+                                    border-radius: 5px;
+                                    background-color: rgba(255,255,255,.4);
+                                    display: grid;
+                                    grid-template-columns: repeat(2, 50%);
+
+                                    >li {
+                                        padding: 5px;
+                                        >div{
+                                           background-color: #FFF;
+                                           border:1px solid rgba(0,0,0,.1);
+                                           border-radius: 3px;
+                                           line-height: 35px;
+                                           text-align: center;
+                                        }
+                                        &.active>div{
+                                            background-color: #ffd882;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        &.active{
+                            visibility: visible;
+                            h3{
+                                color:#3849a9;
+                            }
+                            .childs{
+                                background-color: $active-color;
+                            }
+                        }
+                    }
+                }
+                // 章节详情
+                .detail-info{
+                    position: absolute;
+                    z-index: 10;
+                    top: 120px;
+                    right: 0;
+                    bottom: 0;
+                    left:100%;
+                    background-color: #FFF;
+                    padding: 15px;
+                    opacity: 0;
+                    transition: all .5s;
+                    pointer-events: none;
+                    &.show{
+                        left:0;
+                        opacity: 1;
+                        pointer-events: auto;
+                    }
+                    >.title{
+                        font-size: 16px;
+                        font-weight: bold;
+                    }
+                    ::v-deep .el-button{
+                        font-size: 16px;
+                    }
+                    >.content{
+                        padding: 15px 25px;
+                        border: 1px solid #DDD;
+                        border: 1px solid #EEE;
+                        box-shadow: 3px 3px 4px 0 rgba(0,0,0,.2);
+                        >.lists{
+                            margin-bottom: 30px;
+                            >h3{
+                                margin: 0;
+                                line-height: 30px;
+                                font-weight: bold;
+                                display: flex;
+                                align-items: center;
+                                color: $blue;
+                                &::before {
+                                    content: "";
+                                    height: 15px;
+                                    width: 4px;
+                                    margin-right: 10px;
+                                    display: inline-block;
+                                    background-color: #a0b5e9;
+                                }
+                            }
+                            >ul{
+                                overflow: hidden;
+                                list-style-type: none;
+                                border: 1px solid #EEE;
+                                padding:10px;
+                                display: grid;
+                                grid-template-columns: repeat(5, 20%);
+                                background-color: #f5f8fd;
+                                >li {
+                                    font-size:14px;
+                                    padding:10px;
+                                    >div{
+                                        border: 1px solid #EEE;
+                                        padding:15px;
+                                        text-align: center;
+                                        background-color: #FFF;
+                                        color: $blue;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

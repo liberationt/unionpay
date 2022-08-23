@@ -1,0 +1,66 @@
+.project-detail-container{
+    background-color: #F8F8F8;
+    height: 100%;
+    >header{
+        margin: 0 auto;
+        width: 600px;
+        padding: 15px 0;
+        >ul{
+            list-style-type: none;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            >li {
+                font-size: 16px;
+                padding: 0 10px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                color: #666;
+                >i{
+                    font-size: 18px;
+                    margin-right: 5px;
+                }
+                &:hover,&.active{
+                    >span{
+                        color: #333;
+                        // font-weight: bold;
+                        border-bottom: 2px solid #ff3000;
+                    }
+                }
+            }
+        }
+
+    }
+    >main{
+        display: flex;
+        height: calc(100% - 53px);
+        >div{
+            padding: 0 15px 15px;
+            >div{
+                background-color: #FFF;
+                box-shadow: 0 0 5px 0 rgba(0,0,0,.1);
+                height: 100%;
+                padding: 20px;
+            }
+            &.main-wrapper{
+                flex:1;
+            }
+            &.right-wrapper{
+                flex: 0 0 450px;
+                >div{
+                    padding: 0;
+                    overflow: hidden;
+                }
+            }
+        }
+
+    }
+}
+
+::v-deep .win-dialog{
+    .el-dialog__body{
+        padding:0;
+    }
+}

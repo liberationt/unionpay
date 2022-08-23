@@ -1,0 +1,98 @@
+@import "~@/assets/styles/variables.scss";
+.project-list-container{
+    background-color: $sys-background-color;
+    .banners{
+        height: 400px;
+    }
+    .main{
+        margin: 30px auto;
+        width: $page-width;
+        .hot-list{
+
+        }
+        .all-list{
+            margin: 20px 0;
+            background-color: #FFF;
+            border: 1px solid #EEE;
+            box-shadow: 3px 3px 4px 0 rgba(0,0,0,.1);
+            padding: 15px;
+            >h3.title{
+                text-align: center;
+                font-size: 1.25rem;
+                font-weight: bold;
+                font-family: simHei;
+                padding: 0;
+                margin: 20px 0;
+            }
+            .tabs{
+                display: flex;
+                justify-content: center;
+                ::v-deep .el-tabs__nav-wrap{
+                    &:after{
+                        background-color:transparent;
+                    }
+                    .el-tabs__nav{
+                        transform: translateX(350px);
+                        .el-tabs__item{
+                            font-size: 15px;
+                            padding: 0 10px;
+                        }
+                    }
+                }
+            }
+            .content{
+                display: flex;
+                border-top: 1px solid #EEE;
+                >div{
+                    padding: 15px;
+                    min-height: 200px;
+                    &.left-wrapper{
+                        flex:  0 0 200px;
+                        border-right: 1px solid #EEE;
+                        >ul{
+                            list-style-type: none;
+                            >li{
+                                line-height: 30px;
+                                padding: 0 10px;
+                                border-bottom: 1px solid #EEE;
+                                cursor: pointer;
+                                list-style-type: circle;
+                                list-style-position: inside;
+                                color: #888;
+                                &:hover,&.active{
+                                    color: #42b9fe;
+                                }
+                            }
+                        }
+                    }
+                    &.main-wrapper{
+                        flex:1;
+                        ::v-deep .page-render-container{
+                            height: auto;
+                            margin-bottom: 20px;
+                            .element-pane-container{
+                                >.element-panel-container{
+                                    height: auto !important;
+                                    border-width: 0 0 1px 0 !important;
+                                }
+
+                            }
+                            &:last-child {
+                                margin-bottom: 0;
+                                .element-panel-container{
+                                    border-width: 0 !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .pages{
+                border-top: 1px solid #EEE;
+                margin-bottom: 30px;
+            }
+
+        }
+    }
+}

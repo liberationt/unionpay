@@ -1,0 +1,113 @@
+@import "~@/assets/styles/variables.scss";
+.project-index-container{
+    padding:0;
+    height: 100%;
+    overflow: auto;
+    background-color: #EEE;
+    header{
+        .search-content{
+            padding: 10px;
+            background-color: #FFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hive-content{
+            position: relative;
+            min-height: 300px;
+            ::v-deep .hive-lists{
+                >div{
+                    pointer-events: none;
+                    svg>g{
+                        pointer-events: auto;
+                    }
+                }
+            }
+            .tools{
+                display: none;
+                position: absolute;
+                right: 15px;
+                top: 15px;
+                color: #FFF;
+                cursor: pointer;
+            }
+            &:hover{
+                .tools{
+                    display: block;
+                }
+            }
+        }
+    }
+    main {
+        margin: 30px auto;
+        width: $page-width;
+        display: flex;
+        >div{
+            padding: 20px;
+            &.hot-content{
+                flex:1;
+                border: 1px solid #DDD;
+                background-color: #FFF;
+            }
+            &.user-content{
+                padding:0;
+                flex: 0 0 400px;
+                margin-left: 20px;
+                >div{
+                    background-color: #FFF;
+                    border:1px solid #DDD;
+                    padding: 20px;
+                    margin-bottom: 20px;
+                    overflow: hidden;
+                    &:last-child{
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+    .my-work{
+        margin: 20px auto;
+        width: $page-width;
+        padding: 15px;
+        background-color: #FFF;
+        border: 1px solid #DDD;
+        min-height: 300px;
+        .tabs{
+            padding: 10px ;
+            >ul{
+                list-style-type: none;
+                overflow: hidden;
+                padding-top: 10px;
+                >li {
+                    float: left;
+                    margin: 0 20px;
+                    color: #888;
+                    cursor: pointer;
+                    user-select: none;
+                    &.active{
+                        border-bottom: 2px solid #3849a9;
+                        color: #3849a9;
+                    }
+                    ::v-deep .el-badge{
+                        pointer-events: none;
+                        >label{
+                            font-size: 15px;
+                        }
+                        .el-badge__content{
+                            top: -3px;
+                        }
+                    }
+                }
+            }
+        }
+        .datas{
+            padding: 15px 20px 30px 20px;
+            ::v-deep .el-tag{
+                width: 80px;
+                text-align: center;
+            }
+        }
+    }
+
+}
